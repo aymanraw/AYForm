@@ -14,7 +14,7 @@ typealias Cell = (identifier: String, section: Int, outputs: [Output])
 
 protocol AYFormDelegate {
     
-    func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, field: Any)
+    func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, cell : UITableViewCell, field: Any, output: Output)
     func form(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     func form(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
 }
@@ -80,7 +80,7 @@ class AYForm: NSObject, UITableViewDataSource  {
             if let textField = cell.safeValue(forKey: output.0) {
                 
                 refrenceDictionary[output.1] = textField as AnyObject
-                delegate?.form(tableView, cellForRowAt: indexPath, label: output.1, field: textField )
+                delegate?.form(tableView, cellForRowAt: indexPath, label: output.1, cell: cell, field: textField, output: output )
             }
         }
         
