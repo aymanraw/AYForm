@@ -12,7 +12,7 @@ form.addFields(cellIdentifier: "FieldTableViewCell", forSection: 0, outputs: ("t
 ### Delegates:
 
 ```swift
-func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, field: Any) {
+func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, cell: UITableViewCell, field: Any, output: Output) {
         
      
   }
