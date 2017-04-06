@@ -81,6 +81,9 @@ class AYForm: NSObject, UITableViewDataSource  {
                 
                 refrenceDictionary[output.1] = textField as AnyObject
                 delegate?.form(tableView, cellForRowAt: indexPath, label: output.1, cell: cell, field: textField, output: output )
+            }else{
+                
+                print("(: AYForm :) Couldn't find output: ", output.0)
             }
         }
         
