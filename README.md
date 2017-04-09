@@ -28,3 +28,11 @@ func form(_ tableView: UITableView, titleForHeaderInSection section: Int) -> Str
  }
  
  ```
+
+### Installation:
+
+#### Cocoapods
+
+```
+pod 'AYForm'
+```
