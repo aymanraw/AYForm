@@ -8,38 +8,37 @@
 
 import UIKit
 
-typealias Label = String
-typealias Output = (String, Label)
-typealias Cell = (identifier: String, section: Int, outputs: [Output])
+public typealias Label = String
+public typealias Output = (String, Label)
+public typealias Cell = (identifier: String, section: Int, outputs: [Output])
 
-protocol AYFormDelegate {
+public protocol AYFormDelegate {
     
     func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, cell : UITableViewCell, field: Any, output: Output)
     func form(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     func form(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
 }
 
-class AYForm: NSObject, UITableViewDataSource  {
-    
-    private var numberOfSections: Int = 1
+public class AYForm: NSObject, UITableViewDataSource  {
     
     public var fieldsArray = [Cell]()
-    private var refrenceDictionary = [Label: AnyObject]()
     public var delegate: AYFormDelegate?
     
-    init(numberOfSections: Int){
+    private var refrenceDictionary = [Label: AnyObject]()
+    private var numberOfSections: Int = 1
+    
+    public init(numberOfSections: Int){
         super.init()
         
         self.numberOfSections = numberOfSections
     }
     
-    func addFields(cellIdentifier: String, forSection: Int, outputs: Output...){
+    public func addFields(cellIdentifier: String, forSection: Int, outputs: Output...){
         
         fieldsArray.append((cellIdentifier, forSection, outputs))
-    
     }
     
-    func fields(inSection: Int) -> [Cell]{
+    public func fields(inSection: Int) -> [Cell]{
         
         return fieldsArray.filter({$0.1 == inSection})
     }
@@ -61,15 +60,15 @@ class AYForm: NSObject, UITableViewDataSource  {
         return array
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return numberOfSections
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fields(inSection: section).count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let field = fields(inSection: indexPath.section)[indexPath.row]
         
@@ -91,12 +90,12 @@ class AYForm: NSObject, UITableViewDataSource  {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         return delegate?.form(tableView, titleForHeaderInSection: section)
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
         return delegate?.form(tableView, titleForFooterInSection: section)
     }

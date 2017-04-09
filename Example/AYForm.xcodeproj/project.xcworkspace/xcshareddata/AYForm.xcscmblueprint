@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "74E9AC5226DD602B5D1E8A400A72C799D86FFC4C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "74E9AC5226DD602B5D1E8A400A72C799D86FFC4C" : 9223372036854775807,
+    "02E7B8A23FA84956567A320A7B2A3BE556E6ABBE" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7671B9A4-B641-436E-98D7-7225B984D036",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "74E9AC5226DD602B5D1E8A400A72C799D86FFC4C" : "AYForm\/",
+    "02E7B8A23FA84956567A320A7B2A3BE556E6ABBE" : "..\/work\/Dreamtechs\/outandabout\/Frameworks\/dthelper"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AYForm",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/AYForm.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/DT-Projects\/dthelper.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "02E7B8A23FA84956567A320A7B2A3BE556E6ABBE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aymanraw\/AYForm.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "74E9AC5226DD602B5D1E8A400A72C799D86FFC4C"
+    }
+  ]
+}

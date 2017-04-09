@@ -7,96 +7,90 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E32F06821E9675D80003F727 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F06811E9675D80003F727 /* AppDelegate.swift */; };
-		E32F06841E9675D80003F727 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F06831E9675D80003F727 /* ViewController.swift */; };
-		E32F06871E9675D80003F727 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32F06851E9675D80003F727 /* Main.storyboard */; };
-		E32F06891E9675D80003F727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E32F06881E9675D80003F727 /* Assets.xcassets */; };
-		E32F068C1E9675D80003F727 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32F068A1E9675D80003F727 /* LaunchScreen.storyboard */; };
-		E32F06941E9676090003F727 /* AYForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F06931E9676090003F727 /* AYForm.swift */; };
-		E32F06971E9677510003F727 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F06951E9677510003F727 /* FieldTableViewCell.swift */; };
-		E32F06981E9677510003F727 /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32F06961E9677510003F727 /* FieldTableViewCell.xib */; };
-		E32F069C1E9679920003F727 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F069A1E9679920003F727 /* ButtonTableViewCell.swift */; };
-		E32F069D1E9679920003F727 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32F069B1E9679920003F727 /* ButtonTableViewCell.xib */; };
+		E01443211E9AD15C00C97505 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01443201E9AD15C00C97505 /* UIKit.framework */; };
+		E01443231E9AD2A700C97505 /* AYForm.swift in Headers */ = {isa = PBXBuildFile; fileRef = E03BF8391E9AC5B1006D6407 /* AYForm.swift */; };
+		E03BF8331E9AC599006D6407 /* AYForm.h in Headers */ = {isa = PBXBuildFile; fileRef = E03BF8311E9AC599006D6407 /* AYForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E03BF83A1E9AC5B1006D6407 /* AYForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03BF8391E9AC5B1006D6407 /* AYForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E32F067E1E9675D80003F727 /* AYForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AYForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E32F06811E9675D80003F727 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E32F06831E9675D80003F727 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E32F06861E9675D80003F727 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E32F06881E9675D80003F727 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E32F068B1E9675D80003F727 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E32F068D1E9675D80003F727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E32F06931E9676090003F727 /* AYForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AYForm.swift; path = ../../AYForm.swift; sourceTree = "<group>"; };
-		E32F06951E9677510003F727 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
-		E32F06961E9677510003F727 /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
-		E32F069A1E9679920003F727 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
-		E32F069B1E9679920003F727 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		E01443201E9AD15C00C97505 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E03BF82E1E9AC599006D6407 /* AYForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AYForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E03BF8311E9AC599006D6407 /* AYForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYForm.h; sourceTree = "<group>"; };
+		E03BF8321E9AC599006D6407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E03BF8391E9AC5B1006D6407 /* AYForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E32F067B1E9675D80003F727 /* Frameworks */ = {
+		E03BF82A1E9AC599006D6407 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01443211E9AD15C00C97505 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E32F06751E9675D80003F727 = {
+		E014431F1E9AD15C00C97505 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E32F06801E9675D80003F727 /* AYForm */,
-				E32F067F1E9675D80003F727 /* Products */,
+				E01443201E9AD15C00C97505 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E03BF8241E9AC599006D6407 = {
+			isa = PBXGroup;
+			children = (
+				E03BF8301E9AC599006D6407 /* AYForm */,
+				E03BF82F1E9AC599006D6407 /* Products */,
+				E014431F1E9AD15C00C97505 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		E32F067F1E9675D80003F727 /* Products */ = {
+		E03BF82F1E9AC599006D6407 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E32F067E1E9675D80003F727 /* AYForm.app */,
+				E03BF82E1E9AC599006D6407 /* AYForm.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E32F06801E9675D80003F727 /* AYForm */ = {
+		E03BF8301E9AC599006D6407 /* AYForm */ = {
 			isa = PBXGroup;
 			children = (
-				E32F06931E9676090003F727 /* AYForm.swift */,
-				E32F06811E9675D80003F727 /* AppDelegate.swift */,
-				E32F06831E9675D80003F727 /* ViewController.swift */,
-				E32F06991E9677550003F727 /* Field Cell */,
-				E32F06851E9675D80003F727 /* Main.storyboard */,
-				E32F06881E9675D80003F727 /* Assets.xcassets */,
-				E32F068A1E9675D80003F727 /* LaunchScreen.storyboard */,
-				E32F068D1E9675D80003F727 /* Info.plist */,
+				E03BF8311E9AC599006D6407 /* AYForm.h */,
+				E03BF8391E9AC5B1006D6407 /* AYForm.swift */,
+				E03BF8321E9AC599006D6407 /* Info.plist */,
 			);
 			path = AYForm;
 			sourceTree = "<group>";
 		};
-		E32F06991E9677550003F727 /* Field Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E32F06951E9677510003F727 /* FieldTableViewCell.swift */,
-				E32F06961E9677510003F727 /* FieldTableViewCell.xib */,
-				E32F069A1E9679920003F727 /* ButtonTableViewCell.swift */,
-				E32F069B1E9679920003F727 /* ButtonTableViewCell.xib */,
-			);
-			name = "Field Cell";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		E03BF82B1E9AC599006D6407 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E03BF8331E9AC599006D6407 /* AYForm.h in Headers */,
+				E01443231E9AD2A700C97505 /* AYForm.swift in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		E32F067D1E9675D80003F727 /* AYForm */ = {
+		E03BF82D1E9AC599006D6407 /* AYForm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E32F06901E9675D80003F727 /* Build configuration list for PBXNativeTarget "AYForm" */;
+			buildConfigurationList = E03BF8361E9AC599006D6407 /* Build configuration list for PBXNativeTarget "AYForm" */;
 			buildPhases = (
-				E32F067A1E9675D80003F727 /* Sources */,
-				E32F067B1E9675D80003F727 /* Frameworks */,
-				E32F067C1E9675D80003F727 /* Resources */,
+				E03BF8291E9AC599006D6407 /* Sources */,
+				E03BF82A1E9AC599006D6407 /* Frameworks */,
+				E03BF82B1E9AC599006D6407 /* Headers */,
+				E03BF82C1E9AC599006D6407 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -104,95 +98,66 @@
 			);
 			name = AYForm;
 			productName = AYForm;
-			productReference = E32F067E1E9675D80003F727 /* AYForm.app */;
-			productType = "com.apple.product-type.application";
+			productReference = E03BF82E1E9AC599006D6407 /* AYForm.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E32F06761E9675D80003F727 /* Project object */ = {
+		E03BF8251E9AC599006D6407 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Ayman Rawashdeh";
 				TargetAttributes = {
-					E32F067D1E9675D80003F727 = {
-						CreatedOnToolsVersion = 8.2.1;
+					E03BF82D1E9AC599006D6407 = {
+						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = GN5A64HSWL;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = E32F06791E9675D80003F727 /* Build configuration list for PBXProject "AYForm" */;
+			buildConfigurationList = E03BF8281E9AC599006D6407 /* Build configuration list for PBXProject "AYForm" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = E32F06751E9675D80003F727;
-			productRefGroup = E32F067F1E9675D80003F727 /* Products */;
+			mainGroup = E03BF8241E9AC599006D6407;
+			productRefGroup = E03BF82F1E9AC599006D6407 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E32F067D1E9675D80003F727 /* AYForm */,
+				E03BF82D1E9AC599006D6407 /* AYForm */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E32F067C1E9675D80003F727 /* Resources */ = {
+		E03BF82C1E9AC599006D6407 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E32F068C1E9675D80003F727 /* LaunchScreen.storyboard in Resources */,
-				E32F06891E9675D80003F727 /* Assets.xcassets in Resources */,
-				E32F069D1E9679920003F727 /* ButtonTableViewCell.xib in Resources */,
-				E32F06981E9677510003F727 /* FieldTableViewCell.xib in Resources */,
-				E32F06871E9675D80003F727 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E32F067A1E9675D80003F727 /* Sources */ = {
+		E03BF8291E9AC599006D6407 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E32F06841E9675D80003F727 /* ViewController.swift in Sources */,
-				E32F06941E9676090003F727 /* AYForm.swift in Sources */,
-				E32F069C1E9679920003F727 /* ButtonTableViewCell.swift in Sources */,
-				E32F06971E9677510003F727 /* FieldTableViewCell.swift in Sources */,
-				E32F06821E9675D80003F727 /* AppDelegate.swift in Sources */,
+				E03BF83A1E9AC5B1006D6407 /* AYForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		E32F06851E9675D80003F727 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E32F06861E9675D80003F727 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E32F068A1E9675D80003F727 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E32F068B1E9675D80003F727 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		E32F068E1E9675D80003F727 /* Debug */ = {
+		E03BF8341E9AC599006D6407 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -215,6 +180,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -232,16 +198,19 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		E32F068F1E9675D80003F727 /* Release */ = {
+		E03BF8351E9AC599006D6407 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,6 +233,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -275,36 +245,56 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		E32F06911E9675D80003F727 /* Debug */ = {
+		E03BF8371E9AC599006D6407 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GN5A64HSWL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AYForm/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtech.AYForm;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aymanr.AYForm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		E32F06921E9675D80003F727 /* Release */ = {
+		E03BF8381E9AC599006D6407 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GN5A64HSWL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AYForm/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtech.AYForm;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aymanr.AYForm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -312,24 +302,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E32F06791E9675D80003F727 /* Build configuration list for PBXProject "AYForm" */ = {
+		E03BF8281E9AC599006D6407 /* Build configuration list for PBXProject "AYForm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E32F068E1E9675D80003F727 /* Debug */,
-				E32F068F1E9675D80003F727 /* Release */,
+				E03BF8341E9AC599006D6407 /* Debug */,
+				E03BF8351E9AC599006D6407 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E32F06901E9675D80003F727 /* Build configuration list for PBXNativeTarget "AYForm" */ = {
+		E03BF8361E9AC599006D6407 /* Build configuration list for PBXNativeTarget "AYForm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E32F06911E9675D80003F727 /* Debug */,
-				E32F06921E9675D80003F727 /* Release */,
+				E03BF8371E9AC599006D6407 /* Debug */,
+				E03BF8381E9AC599006D6407 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E32F06761E9675D80003F727 /* Project object */;
+	rootObject = E03BF8251E9AC599006D6407 /* Project object */;
 }
