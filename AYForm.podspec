@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'AYForm/Classes/**/*'
+  s.source_files = 'AYForm/AYForm/**/*'
   
   # s.resource_bundles = {
   #   'AYForm' => ['AYForm/Assets/*.png']
