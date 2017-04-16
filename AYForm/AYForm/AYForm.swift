@@ -15,6 +15,7 @@ public typealias Cell = (identifier: String, section: Int, outputs: [Output])
 public protocol AYFormDelegate {
     
     func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, cell : UITableViewCell, field: Any, output: Output)
+    func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath,cell : UITableViewCell, cellIdentifier: String)
     func form(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     func form(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
 }
@@ -86,6 +87,7 @@ public class AYForm: NSObject, UITableViewDataSource  {
             }
         }
         
+        delegate?.form(tableView, cellForRowAt: indexPath, cell: cell, cellIdentifier: field.identifier)
         
         return cell
     }

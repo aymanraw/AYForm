@@ -66,6 +66,10 @@ class ViewController: UIViewController, UITableViewDelegate, AYFormDelegate {
         return nil
         
     }
+    
+    func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, cell: UITableViewCell, cellIdentifier: String) {
+        
+    }
     func form(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?{
         
         return nil
