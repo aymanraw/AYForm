@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AYForm'
-  s.version          = '0.1.2'
-  s.summary          = 'Small library to create form fields easily.'
+  s.version          = ‘0.2.0’
+  s.summary          = 'Small library that creates forms in swift 3.0, it works by giving your tableview’s dataSource to the AYForm and the library take cares of returning the cells and saving all fields to future access.’
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?

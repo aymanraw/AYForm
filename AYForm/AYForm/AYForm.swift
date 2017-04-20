@@ -5,46 +5,138 @@
 //  Created by Ayman Rawashdeh on 3/29/17.
 //  Copyright © 2017 Ayman Rawashdeh. All rights reserved.
 //
-
 import UIKit
 
-public typealias Label = String
-public typealias Output = (String, Label)
-public typealias Cell = (identifier: String, section: Int, outputs: [Output])
+public typealias Output = (String, label: String)
+public typealias Cell = (identifier: String, uniqueIdentifier: String?, section: Int, outputs: [AYFormOutput])
+
+public class AYFormOutput: NSObject {
+    
+    public var fieldOutput: String
+    public var label: String
+    
+    init(fieldOutput: String, label: String) {
+        
+        self.fieldOutput = fieldOutput
+        self.label = label
+    }
+    
+    static func getOutputs(_ outputs: [(String, String)?]!) -> [AYFormOutput] {
+        
+        var array = [AYFormOutput]()
+        
+        if let outputs = outputs {
+            
+            for output in outputs {
+                
+                if let output = output {
+                
+                    array.append(AYFormOutput(fieldOutput: output.0, label: output.1))
+                }
+            }
+        }
+        
+        return array
+    }
+}
+
+public class AYFormCell {
+    
+    var identifier: String
+    var uniqueIdentifier: String!
+    var section: Int
+    var outputs: [AYFormOutput]
+    
+    init(identifier: String, uniqueIdentifier: String!, section: Int, outputs: [AYFormOutput]! ) {
+        
+        self.identifier = identifier
+        self.uniqueIdentifier = uniqueIdentifier
+        self.section = section
+        self.outputs = outputs ?? [AYFormOutput]()
+    }
+}
+
+
 
 public protocol AYFormDelegate {
     
+    @available( *, deprecated: 0.2.0, message: "Please use the new AYFormDataSource instead")
     func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, cell : UITableViewCell, field: Any, output: Output)
+    
+    @available( *, deprecated: 0.2.0, message: "Please use the new AYFormDataSource")
     func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath,cell : UITableViewCell, cellIdentifier: String)
+    
+    @available( *, deprecated: 0.2.0, message: "Please use the new AYFormDataSource instead")
     func form(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    
+    @available( *, deprecated: 0.2.0, message: "Please use the new AYFormDataSource instead")
     func form(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
 }
 
+@objc public protocol AYFormDataSource: NSObjectProtocol {
+    
+    @objc optional func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, field: Any, cell : UITableViewCell)
+    @objc optional func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath,cell : UITableViewCell, cellIdentifier: String, uniqueIdentifier: String!)
+    
+    @objc optional func form(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    @objc optional func form(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
+}
+
+
 public class AYForm: NSObject, UITableViewDataSource  {
     
-    public var fieldsArray = [Cell]()
+    public var fieldsArray = [AYFormCell]()
+    
+    @available( *, deprecated: 0.2.0, message: "Please use the new AYFormDataSource instead")
     public var delegate: AYFormDelegate?
     
-    private var refrenceDictionary = [Label: AnyObject]()
-    private var numberOfSections: Int = 1
+    public var dataSource: AYFormDataSource?
+    public var numberOfSections: Int = 1
     
+    private var refrenceDictionary = [String: AnyObject]()
+   
     public init(numberOfSections: Int){
         super.init()
         
         self.numberOfSections = numberOfSections
     }
     
-    public func addFields(cellIdentifier: String, forSection: Int, outputs: Output...){
+    public func addFields(cellIdentifier: String, forSection: Int, outputs: (String, String)!...){
         
-        fieldsArray.append((cellIdentifier, forSection, outputs))
+        let cell = AYFormCell(identifier: cellIdentifier, uniqueIdentifier: nil, section: forSection, outputs: AYFormOutput.getOutputs(outputs))
+        fieldsArray.append(cell)
     }
     
-    public func fields(inSection: Int) -> [Cell]{
+    public func addFields(cellIdentifier: String, uniqueIdentifier: String!, forSection: Int, outputs: (String, String)!...){
         
-        return fieldsArray.filter({$0.1 == inSection})
+        let cell = AYFormCell(identifier: cellIdentifier, uniqueIdentifier: uniqueIdentifier, section: forSection, outputs: AYFormOutput.getOutputs(outputs))
+        fieldsArray.append(cell)
     }
     
-    public func field(label: Label) -> AnyObject? {
+    public func addField(cellIdentifier: String, fieldOutput: String, label: String){
+        
+        let cell = fieldsArray.filter({$0.identifier == cellIdentifier}).first
+        cell?.outputs.append(AYFormOutput(fieldOutput: fieldOutput, label: label))
+    }
+    
+    public func addField(unequeIdentifier: String, fieldOutput: String, label: String){
+        
+        let cell = fieldsArray.filter({$0.uniqueIdentifier == unequeIdentifier}).first
+        cell?.outputs.append(AYFormOutput(fieldOutput: fieldOutput, label: label))
+    }
+    
+    public func addCell(cellIdentifier: String, uniqueIdentifier: String!, forSection: Int){
+        
+        let cell = AYFormCell(identifier: cellIdentifier, uniqueIdentifier: uniqueIdentifier, section: forSection, outputs: nil)
+        fieldsArray.append(cell)
+    }
+    
+    public func fields(inSection: Int) -> [AYFormCell]{
+        
+        return fieldsArray.filter({$0.section == inSection})
+    }
+    
+    public func field(label: String) -> AnyObject? {
         
         return refrenceDictionary[label]
     }
@@ -77,32 +169,57 @@ public class AYForm: NSObject, UITableViewDataSource  {
         
         for output in field.outputs {
             
-            if let textField = cell.safeValue(forKey: output.0) {
+            if let Field = cell.safeValue(forKey: output.fieldOutput) {
                 
-                refrenceDictionary[output.1] = textField as AnyObject
-                delegate?.form(tableView, cellForRowAt: indexPath, label: output.1, cell: cell, field: textField, output: output )
+                refrenceDictionary[output.label] = Field as AnyObject
+                
+                // FIX: Deprecated method it will be removed in version 0.3.0
+                delegate?.form(tableView, cellForRowAt: indexPath, label: output.label, cell: cell, field: Field, output: (output.fieldOutput, output.label))
+                
+                if dataSource?.responds(to: #selector(dataSource?.form(_:cellForRowAt:label:field:cell:))) == true {
+                    
+                    dataSource?.form!(tableView, cellForRowAt: indexPath, label: output.label, field: Field, cell: cell)
+                }
+                
             }else{
                 
-                print("(: AYForm :) Couldn't find output: ", output.0)
+                print("(: AYForm :) Couldn't find output: ", output.fieldOutput)
             }
         }
         
+        // FIX: Deprecated method it will be deleted in version 0.3.0
         delegate?.form(tableView, cellForRowAt: indexPath, cell: cell, cellIdentifier: field.identifier)
+        
+        if dataSource?.responds(to: #selector(dataSource?.form(_:cellForRowAt:cell:cellIdentifier:uniqueIdentifier:))) == true {
+            
+            dataSource?.form!(tableView, cellForRowAt: indexPath, cell: cell, cellIdentifier: field.identifier, uniqueIdentifier: field.uniqueIdentifier)
+        }
         
         return cell
     }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
+        if dataSource?.responds(to: #selector(dataSource?.form(_:titleForHeaderInSection:))) == true {
+            
+            return dataSource?.form!(tableView, titleForHeaderInSection: section)
+        }
+        
+        // FIX: Deprecated method it will be deleted in version 0.3.0
         return delegate?.form(tableView, titleForHeaderInSection: section)
+        
     }
     
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
+        if dataSource?.responds(to: #selector(dataSource?.form(_:titleForFooterInSection:))) == true {
+            
+           return dataSource?.form!(tableView, titleForFooterInSection: section)
+        }
+        
+        // FIX: Deprecated method it will be deleted in version 0.3.0
         return delegate?.form(tableView, titleForFooterInSection: section)
     }
-    
-    
     
 }
 

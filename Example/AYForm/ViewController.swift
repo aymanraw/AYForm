@@ -23,12 +23,15 @@ class ViewController: UIViewController, UITableViewDelegate, AYFormDelegate {
         
         ayForm = AYForm(numberOfSections: 4)
         
-        ayForm.addFields(cellIdentifier: "FieldTableViewCell", forSection: 0, outputs: ("textField", "Name"))
+        ayForm.addCell(cellIdentifier: "FieldTableViewCell", uniqueIdentifier: "NameCell", forSection: 0)
+        ayForm.addField(unequeIdentifier: "NameCell", fieldOutput: "textField", label: "Name")
+        
         ayForm.addFields(cellIdentifier: "FieldTableViewCell", forSection: 1, outputs: ("textField", "Email"))
         ayForm.addFields(cellIdentifier: "FieldTableViewCell", forSection: 1, outputs: ("textField", "Phone Number"))
         ayForm.addFields(cellIdentifier: "FieldTableViewCell", forSection: 1, outputs: ("textField", "Address"))
         ayForm.addFields(cellIdentifier: "FieldTableViewCell", forSection: 2, outputs: ("textField", "Password"))
         ayForm.addFields(cellIdentifier: "ButtonTableViewCell", forSection: 3, outputs: ("saveButton", "Save"))
+         ayForm.addFields(cellIdentifier: "ButtonTableViewCell", forSection: 3, outputs: nil)
         
         tableView.delegate = self
         tableView.dataSource = ayForm
@@ -38,14 +41,14 @@ class ViewController: UIViewController, UITableViewDelegate, AYFormDelegate {
     
     func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, cell: UITableViewCell, field: Any, output: Output) {
         
-        if output.1 == "Save", let saveButton = field as? UIButton {
+        if output.label == "Save", let saveButton = field as? UIButton {
             
             saveButton.addTarget(self, action: #selector(self.saveSelector), for: .touchUpInside)
         }
         
         if let textField = field as? UITextField {
             
-            textField.placeholder = output.1
+            textField.placeholder = output.label
         }
     }
     func form(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
