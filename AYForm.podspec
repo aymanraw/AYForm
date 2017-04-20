@@ -33,7 +33,7 @@ Small library that creates forms in swift 3.0, it works by giving your tableview
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'AYForm/AYForm/**/*'
+  s.source_files = 'AYForm/**/*','AYForm/AYForm/**/*', 'AYForm/AYForm/*'
   
   # s.resource_bundles = {
   #   'AYForm' => ['AYForm/Assets/*.png']
