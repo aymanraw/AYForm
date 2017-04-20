@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'AYForm'
   s.version          = '0.2.0'
-  s.summary          = 'Small library that creates forms in swift 3.0, it works by giving your tableview dataSource to the AYForm and the library take cares of returning the cells and saving all fields to future access.'
+  s.summary          = 'Create forms in swift 3.0, it works by giving your tableview dataSource.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,8 +17,11 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
+
+#
+
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Small library that creates forms in swift 3.0, it works by giving your tableview dataSource to the AYForm and the library take cares of returning the cells and saving all fields to future access.
                        DESC
 
   s.homepage         = 'https://github.com/aymanraw/AYForm'
