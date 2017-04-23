@@ -40,6 +40,6 @@ Small library that creates forms in swift 3.0, it works by giving your tableview
   # }
 
   # s.public_header_files = 'Pod/AYForm/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+    s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
