@@ -10,6 +10,8 @@
 		E01443231E9AD2A700C97505 /* AYForm.swift in Headers */ = {isa = PBXBuildFile; fileRef = E03BF8391E9AC5B1006D6407 /* AYForm.swift */; };
 		E03BF8331E9AC599006D6407 /* AYForm.h in Headers */ = {isa = PBXBuildFile; fileRef = E03BF8311E9AC599006D6407 /* AYForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E03BF83A1E9AC5B1006D6407 /* AYForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03BF8391E9AC5B1006D6407 /* AYForm.swift */; };
+		E36D61E01EACD21300057710 /* AYFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36D61DF1EACD21300057710 /* AYFormCell.swift */; };
+		E36D61E21EACD23700057710 /* AYFormOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36D61E11EACD23700057710 /* AYFormOutput.swift */; };
 		E3C51A651EAC8D75004C23FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01443201E9AD15C00C97505 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +21,8 @@
 		E03BF8311E9AC599006D6407 /* AYForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYForm.h; sourceTree = "<group>"; };
 		E03BF8321E9AC599006D6407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E03BF8391E9AC5B1006D6407 /* AYForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYForm.swift; sourceTree = "<group>"; };
+		E36D61DF1EACD21300057710 /* AYFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYFormCell.swift; sourceTree = "<group>"; };
+		E36D61E11EACD23700057710 /* AYFormOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYFormOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				E03BF8311E9AC599006D6407 /* AYForm.h */,
 				E03BF8391E9AC5B1006D6407 /* AYForm.swift */,
 				E03BF8321E9AC599006D6407 /* Info.plist */,
+				E36D61DF1EACD21300057710 /* AYFormCell.swift */,
+				E36D61E11EACD23700057710 /* AYFormOutput.swift */,
 			);
 			path = AYForm;
 			sourceTree = "<group>";
@@ -149,7 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36D61E21EACD23700057710 /* AYFormOutput.swift in Sources */,
 				E03BF83A1E9AC5B1006D6407 /* AYForm.swift in Sources */,
+				E36D61E01EACD21300057710 /* AYFormCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

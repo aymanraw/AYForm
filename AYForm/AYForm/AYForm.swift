@@ -10,53 +10,6 @@ import UIKit
 public typealias Output = (String, label: String)
 public typealias Cell = (identifier: String, uniqueIdentifier: String?, section: Int, outputs: [AYFormOutput])
 
-public class AYFormOutput: NSObject {
-    
-    public var fieldOutput: String
-    public var label: String
-    
-    init(fieldOutput: String, label: String) {
-        
-        self.fieldOutput = fieldOutput
-        self.label = label
-    }
-    
-    static func getOutputs(_ outputs: [(String, String)?]!) -> [AYFormOutput] {
-        
-        var array = [AYFormOutput]()
-        
-        if let outputs = outputs {
-            
-            for output in outputs {
-                
-                if let output = output {
-                
-                    array.append(AYFormOutput(fieldOutput: output.0, label: output.1))
-                }
-            }
-        }
-        
-        return array
-    }
-}
-
-public class AYFormCell {
-    
-    var identifier: String
-    var uniqueIdentifier: String!
-    var section: Int
-    var outputs: [AYFormOutput]
-    
-    init(identifier: String, uniqueIdentifier: String!, section: Int, outputs: [AYFormOutput]! ) {
-        
-        self.identifier = identifier
-        self.uniqueIdentifier = uniqueIdentifier
-        self.section = section
-        self.outputs = outputs ?? [AYFormOutput]()
-    }
-}
-
-
 
 public protocol AYFormDelegate {
     
@@ -78,8 +31,8 @@ public protocol AYFormDelegate {
     @objc optional func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, label: String, field: Any, cell : UITableViewCell)
     @objc optional func form(_ tableView: UITableView, cellForRowAt indexPath: IndexPath,cell : UITableViewCell, cellIdentifier: String, uniqueIdentifier: String!)
     
-    @objc optional func form(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    @objc optional func form(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
+    @objc optional func form(_ tableView: UITableView, titleForHeaderInSection section: Int, isHiddenSection: Bool) -> String?
+    @objc optional func form(_ tableView: UITableView, titleForFooterInSection section: Int, isHiddenSection: Bool) -> String?
 }
 
 
@@ -93,12 +46,29 @@ public class AYForm: NSObject, UITableViewDataSource  {
     public var dataSource: AYFormDataSource?
     public var numberOfSections: Int = 1
     
+    private var indexSet = IndexSet()
     private var refrenceDictionary = [String: AnyObject]()
+    
+    
+    public override init() {
+        super.init()
+        
+        populateSectionsSet()
+    }
    
     public init(numberOfSections: Int){
         super.init()
         
         self.numberOfSections = numberOfSections
+        populateSectionsSet()
+    }
+    
+    private func populateSectionsSet(){
+    
+        for index in 0...(numberOfSections - 1){
+            
+            indexSet.insert(index)
+        }
     }
     
     public func addFields(cellIdentifier: String, forSection: Int, outputs: (String, String)!...){
@@ -131,9 +101,116 @@ public class AYForm: NSObject, UITableViewDataSource  {
         fieldsArray.append(cell)
     }
     
+    public func hideCell(uniqueIdentifier: String) {
+        hideCell(uniqueIdentifier: uniqueIdentifier, tableView: nil)
+    }
+    
+    public func hideCell(uniqueIdentifier: String, tableView: UITableView!) {
+        
+        if let cell = fieldsArray.filter({$0.uniqueIdentifier == uniqueIdentifier}).first{
+            
+            if cell.isHidden {
+                return
+            }
+            
+            cell.isHidden = true
+            
+            if let index = index(for: cell) {
+                
+                let indexPath = IndexPath(row: index, section: cell.section)
+                tableView?.deleteRows(at: [indexPath], with: .automatic)
+            }
+            
+        }
+    }
+    
+    public func showCell(uniqueIdentifier: String, tableView: UITableView!) {
+        
+        if let cell = fieldsArray.filter({$0.uniqueIdentifier == uniqueIdentifier}).first{
+            
+            if !cell.isHidden {
+                return
+            }
+            
+            cell.isHidden = false
+            
+            if let index = index(for: cell) {
+                
+                let indexPath = IndexPath(row: index, section: cell.section)
+                tableView?.insertRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
+    public func toggleCell(uniqueIdentifier: String, tableView: UITableView) {
+        
+        if let cell = fieldsArray.filter({$0.uniqueIdentifier == uniqueIdentifier}).first{
+            
+            cell.isHidden = !cell.isHidden
+            
+            if let index = index(for: cell) {
+                
+                let indexPath = IndexPath(row: index, section: cell.section)
+                
+                if cell.isHidden {
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }else{
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+                
+            }
+        }
+    }
+    
+    public func hide(section: Int, tableView: UITableView) {
+        
+        if indexSet.remove(section) != nil {
+            
+            var indexSet2 = IndexSet()
+            indexSet2.insert(section)
+            
+            tableView.deleteSections(indexSet2, with: .bottom)
+        }
+    }
+    
+    public func show(section: Int, tableView: UITableView) {
+       
+        let countBefore = indexSet.count
+        
+        indexSet.insert(section)
+        if indexSet.count == countBefore {
+            
+            return
+        }
+        
+        
+        var indexSet2 = IndexSet()
+        indexSet2.insert(section)
+        
+        tableView.insertSections(indexSet2, with: .top)
+        
+        
+    }
+    
+    public func index(for cell: AYFormCell) -> Int?{
+        
+        let cellsInSection = fieldsArray.filter({$0.section == cell.section})
+        
+        for (index, value) in cellsInSection.enumerated() {
+            
+            if value === cell {
+                
+                return index
+                
+            }
+        }
+        
+        return nil
+    }
+    
     public func fields(inSection: Int) -> [AYFormCell]{
         
-        return fieldsArray.filter({$0.section == inSection})
+        return fieldsArray.filter({$0.section == inSection && $0.isHidden == false})
     }
     
     public func field(label: String) -> AnyObject? {
@@ -154,7 +231,7 @@ public class AYForm: NSObject, UITableViewDataSource  {
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return numberOfSections
+        return indexSet.count
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -200,9 +277,9 @@ public class AYForm: NSObject, UITableViewDataSource  {
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if dataSource?.responds(to: #selector(dataSource?.form(_:titleForHeaderInSection:))) == true {
+        if dataSource?.responds(to: #selector(dataSource?.form(_:titleForHeaderInSection:isHiddenSection:))) == true {
             
-            return dataSource?.form!(tableView, titleForHeaderInSection: section)
+            return dataSource?.form!(tableView, titleForHeaderInSection: section, isHiddenSection: !indexSet.contains(section))
         }
         
         // FIX: Deprecated method it will be deleted in version 0.3.0
@@ -212,10 +289,13 @@ public class AYForm: NSObject, UITableViewDataSource  {
     
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
-        if dataSource?.responds(to: #selector(dataSource?.form(_:titleForFooterInSection:))) == true {
+        if dataSource?.responds(to: #selector(dataSource?.form(_:titleForFooterInSection:isHiddenSection:))) == true {
             
-           return dataSource?.form!(tableView, titleForFooterInSection: section)
+            
+           return dataSource?.form!(tableView, titleForFooterInSection: section, isHiddenSection: !indexSet.contains(section))
         }
+        
+        
         
         // FIX: Deprecated method it will be deleted in version 0.3.0
         return delegate?.form(tableView, titleForFooterInSection: section)
