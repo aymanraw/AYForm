@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, AYFormDataSource {
         
         ayForm.addCell(cellIdentifier: "FieldTableViewCell", uniqueIdentifier: "NameCell", forSection: 0)
         ayForm.addField(unequeIdentifier: "NameCell", fieldOutput: "textField", label: "Name")
-        ayForm.hideCell(uniqueIdentifier: "NameCell") // initially hide cell
+//        ayForm.hideCell(uniqueIdentifier: "NameCell") // initially hide cell
         
         ayForm.addFields(cellIdentifier: "FieldTableViewCell", forSection: 1, outputs: ("textField", "Email"))
         ayForm.addFields(cellIdentifier: "FieldTableViewCell", forSection: 1, outputs: ("textField", "Phone Number"))
@@ -91,9 +91,10 @@ class ViewController: UIViewController, UITableViewDelegate, AYFormDataSource {
     
     func saveSelector(){
         
-        ayForm.toggleCell(uniqueIdentifier: "NameCell", tableView: tableView)
+//        ayForm.toggleCell(uniqueIdentifier: "NameCell", tableView: tableView)
         
-        ayForm.hide(section: 2, tableView: tableView)
+//        ayForm.hide(section: 2, tableView: tableView)
+        ayForm.removeCell(uniqueIdentifier: "NameCell", tableView: tableView)
         
         print("Name: ", ayForm.field(label: "Name")?.text ?? "Name Field is Empty")
         print("Email: ", ayForm.field(label: "Email")?.text ?? "Email Field is Empty")
@@ -106,6 +107,10 @@ class ViewController: UIViewController, UITableViewDelegate, AYFormDataSource {
      func saveSelector2(){
         
          ayForm.show(section: 2, tableView: tableView)
+        
+//        ayForm.addCell(cellIdentifier: "FieldTableViewCell", uniqueIdentifier: "NameCell", for: 0, in: tableView)
+        ayForm.addCell(cellIdentifier: "FieldTableViewCell", uniqueIdentifier: "NameCell", inSection: 0, forTableView: tableView)
+        
     }
 
     override func didReceiveMemoryWarning() {

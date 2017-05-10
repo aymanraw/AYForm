@@ -81,6 +81,7 @@ public class AYForm: NSObject, UITableViewDataSource  {
         
         let cell = AYFormCell(identifier: cellIdentifier, uniqueIdentifier: uniqueIdentifier, section: forSection, outputs: AYFormOutput.getOutputs(outputs))
         fieldsArray.append(cell)
+        
     }
     
     public func addField(cellIdentifier: String, fieldOutput: String, label: String){
@@ -97,8 +98,61 @@ public class AYForm: NSObject, UITableViewDataSource  {
     
     public func addCell(cellIdentifier: String, uniqueIdentifier: String!, forSection: Int){
         
+        if let uniqueIdentifier = uniqueIdentifier, isUnique(identifier: uniqueIdentifier) == false {
+            
+            print("You are trying to add cell with uniqueIdentifier that is already exists")
+            return
+        }
+        
         let cell = AYFormCell(identifier: cellIdentifier, uniqueIdentifier: uniqueIdentifier, section: forSection, outputs: nil)
         fieldsArray.append(cell)
+    }
+    
+    public func addCell(cellIdentifier: String, uniqueIdentifier: String, inSection: Int, forTableView: UITableView!){
+        
+        if isUnique(identifier: uniqueIdentifier) == false {
+            
+            print("You are trying to add cell with uniqueIdentifier that is already exists")
+            return
+        }
+        
+        let cell = AYFormCell(identifier: cellIdentifier, uniqueIdentifier: uniqueIdentifier, section: inSection, outputs: nil)
+        fieldsArray.append(cell)
+        
+        if let index = index(for: cell) {
+            
+            let indexPath = IndexPath(row: index, section: cell.section)
+            forTableView?.insertRows(at: [indexPath], with: .automatic)
+        }
+        
+    }
+    
+    public func removeCell(uniqueIdentifier: String, tableView: UITableView!){
+        
+        for (arrayIndex, cell) in fieldsArray.enumerated() {
+            
+            if cell.uniqueIdentifier == uniqueIdentifier {
+                
+                if let index = index(for: cell) {
+                    fieldsArray.remove(at: arrayIndex)
+                    let indexPath = IndexPath(row: index, section: cell.section)
+                    tableView?.deleteRows(at: [indexPath], with: .automatic)
+                }
+            }
+        }
+    }
+    
+    func isUnique(identifier: String) -> Bool {
+        
+        for cell in fieldsArray {
+            
+            if cell.uniqueIdentifier == identifier {
+                
+                return false
+            }
+        }
+        
+        return true
     }
     
     public func hideCell(uniqueIdentifier: String) {

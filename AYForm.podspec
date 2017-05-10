@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AYForm'
-  s.version          = '0.2.1'
+  s.version          = '0.2.2'
   s.summary          = 'Create forms in swift 3.0, it works by giving your tableview dataSource.'
 
 # This description is used to generate tags and improve search results.
